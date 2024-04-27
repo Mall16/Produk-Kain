@@ -1,0 +1,225 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+header {
+    color: #fff;
+    padding: 0px;
+    text-align: left;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.2);
+}
+.container{
+    background-color: #fff;
+    width: 95%;
+    margin: 0px auto;
+    overflow: hidden;
+}
+.logo{
+    margin-top: 20px;
+    display: inline-block;
+}
+.logo h1{
+    margin-left: 10px;
+    display: inline;
+    color: #000;
+}
+.logo img{
+    display: inline; 
+}
+.login{
+    padding: 10px 25px;
+    background-color: aqua;
+    border-radius: 50px;
+}
+nav {
+    float: right;
+    color: #000;
+    text-align: center;
+    padding: 10px;
+    display: inline;
+    margin-top: -50px;
+}
+nav ul li{
+    display: inline;
+}
+nav a {
+    color: #000;
+    text-decoration: none;
+    margin: 0 10px;
+}
+.content{
+    padding-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.content div{
+    padding-top: 100px;
+    margin-left: 30px;
+}
+.content h1{
+    font-size: 60px;
+    padding-top : 0px;
+    margin: 0px;
+    display: inline;
+}
+.content p{
+    width: 600px;
+    font-size: 30px;
+    margin: 0px;
+}
+.content img{
+    background-color: #333;
+    width: 50%;
+}
+.produk {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+    padding: 50px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.tengah{
+    display: block;
+    font-size: 50px;
+    text-align: center;
+    margin: 200px 0px 0px;
+}
+.product {
+    width: 300px;
+    margin: 2%;
+    background: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: #c6c6c6;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.product img {
+    width: 100%;
+    height: 280px;
+    border-radius: 5px;
+}
+.product h3 {
+    margin-top: 10px;
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+button:hover{
+    background-color: #256f27;
+}
+footer {
+    margin-top: 30px;
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+/* button mennu */
+#menu-btn{
+    position: relative;
+    display: block;
+    height: 20px;
+    cursor: pointer;
+}
+#menu-btn,#btn{
+    display: none;
+}
+#garis,#menu-btn:after,#menu-btn:before{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color:#000;
+}
+#menu-btn:after,#menu-btn:before{
+    content: "";
+}
+#menu-btn:before{
+    border-radius: 10px;
+    top: 0px;
+}
+#menu-btn:after{
+    border-radius: 10px;
+    top: 8px;
+}
+#garis{
+    border-radius: 10px;
+    top: 16px;
+}
+.hape{
+    display: none;
+}
+@media(max-width:1020px){
+    .container{
+        padding-bottom: 20px;
+    }
+    .logo img{
+        width: 10%;
+        display: inline; 
+    }
+    .content{
+        padding-top: 100px;
+        display: block;
+        text-align: center;
+    }
+    .content div{
+        padding-top: 10px;
+        margin-left: 0;
+    }
+    .content h1{
+        font-size: 60px;
+        padding-top : 0px;
+        margin: 0px;
+        display: inline;
+    }
+    .content p{
+        width: 80%;
+        font-size: 30px;
+        margin: 0px auto;
+    }
+    .content img{
+        width: 80%;
+        background-color: #333;
+    }
+    .navi {
+        margin: 0px;
+        display: none;
+        background-color: #000;
+    }
+    #menu-btn{
+        float: right;
+        display: block;
+        width: 30px;
+        margin-top: -25px;
+        right: 15px;
+    }
+    #btn:checked ~ .navi {
+        display: block;
+        width: 100%;
+    }
+    #hape a{
+        width: 80%;
+        height: 100%;
+        margin: auto;
+        margin-top: 20px;
+        display: block;
+    }
+}

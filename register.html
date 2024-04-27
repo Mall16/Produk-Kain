@@ -1,42 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register</title>
-  </head>
-  <body>
-    <center>
-      <header>
-        <nav>
-          <div class="logo">
-            <img src="Logo.jpg" alt="" width="200px" />
-          </div>
-          <h2>
-            <a href="#about">Tentang kami</a>
-            <a href="#menu">Menu</a>
-            <a href="#contact">kontak</a>
-          </h2>
-        </nav>
-      </header>
-      <main>
-        <div class="login">
-          <h1>Menerima Pesanan Kain</h1>
-          <h2>Register</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Toko Kain</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="assets/logo.svg" alt="" width="3%">
+            <h1>Toko Kain</h1>
         </div>
-      </main>
-    
-    <main>
-      <input type="Username" name="Username" placeholder="Username" />
-      <input type="password" name="password" placeholder="password" />
-      <input type="email" name="email" placeholder="email" />
-      
-      <center>
-      <br>
-      <button type="submit">Register</button>
-      <a href="login.html">Login</a>
-      <a href="index.html">Home</a>
-    </main>
-</center>
-  </body>
+        <h2>Register</h2>
+        <form action="register.php" method="POST">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">New Password:</label>
+                <input type="password" id="1password" name="1password" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Re-enter Password:</label>
+                <input type="password" id="2password" name="2password" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Register">
+            </div>
+            <p>Sudah Memiliki Akun? <a href="login.html">Login</a></p>
+        </form>
+    </div>
+</body>
 </html>

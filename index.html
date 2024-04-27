@@ -3,38 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lading page</title>
+    <title>Toko Kain - Hikmal</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <center>
-        <header>
-            <nav>
-                <h2>
-                    <a href="#about">Tentang kami</a>
-                    <a href="#menu">Menu</a>
-                    <a href="#contact">kontak</a>
-                  </h2>
-            </nav>
-        </header>
-        <main>
-            <div class="login">
-              <h1>Menerima Pesanan Kain</h1>
-              <h2>Siap Antar</h2>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="assets/logo.svg" alt="" width="3%">
+                <h1>Toko Kain</h1>
             </div>
-          </main>
-          <div class="logo">
-            <img src="Logo.jpg" alt="" width="200px" />
-            <h3>Admin Fast Respon</h3>
-            <img src="Bahan.JPEG" width="200px" />
-          </div>
-          <p>
-            <b>
-          <a href="login.html">Login</a>
-          <a href="register.html">Register</a>
-          </b>
-        </p>
-        </center>
-        <main>
-    </center>
+            <input type="checkbox" id="btn">
+            <label for="btn" id="menu-btn">
+                <div id="garis"></div>
+            </label>
+            <nav class="navi" id="hape">
+                <ul>
+                    <li><a href="#">Beranda</a></li>
+                    <li><a href="#">Produk</a></li>
+                    <li><a class="login" href="/login.html">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="content">
+        <img src="assets/beranda.png" alt="">
+        <div>
+            <h1>Selamat Datang</h1>
+            <p>Kualitas terjamin, harga terjangkau, pelayan sangat nyaman.</p>
+        </div>
+    </section>
+    <h1 class="tengah">Product</h1>
+    <div class="produk">
+        <div class="product">
+            <img src="assets/kain1.jpg" alt="Produk 1">
+            <h3>Kain Mantel</h3>
+            <p>Harga: $10</p>
+            <button>Beli Sekarang</button>
+        </div>
+        <div class="product">
+            <img src="assets/kain2.webp" alt="Produk 2">
+            <h3>Kain Serbet</h3>
+            <p>Harga: $15</p>
+            <button>Beli Sekarang</button>
+        </div>
+        <div class="product">
+            <img src="assets/kain3.jpg" alt="Produk 3">
+            <h3>Kain Kerudung</h3>
+            <p>Harga: $20</p>
+            <button>Beli Sekarang</button>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Toko Kain. hikmal fadhilah.</p>
+    </footer>
 </body>
 </html>
