@@ -42,3 +42,81 @@ document.addEventListener("DOMContentLoaded", function() {
         productSection.scrollIntoView({ behavior: "smooth" });
     });
 });
+
+// Mendapatkan elemen tombol untuk membuka popup
+const openPopupBtns = document.querySelectorAll(".open-popup-btn");
+// Mendapatkan elemen popup pembelian
+const purchasePopup = document.getElementById("purchase-popup");
+
+// Fungsi untuk membuka popup
+function openPopup() {
+    purchasePopup.style.display = 'flex';
+}
+
+// Menambahkan event listener ke setiap tombol yang membuka popup
+openPopupBtns.forEach(button => {
+    button.addEventListener("click", openPopup);
+});
+
+// Fungsi untuk menutup popup
+function closePopup() {
+    purchasePopup.style.display = 'none';
+}
+
+// Fungsi asynchronous untuk mengirim data formulir pembelian
+async function submitPurchaseForm(formData) {
+    // Simulasikan pengiriman data ke server menggunakan promise (bisa diganti dengan fetch atau XMLHttpRequest)
+    return new Promise((resolve, reject) => {
+        // Simulasi waktu tunggu pengiriman data (contohnya 2 detik)
+        setTimeout(() => {
+            // Misalnya pengiriman data berhasil
+            const isSuccess = true;
+
+            if (isSuccess) {
+                resolve("Pembelian berhasil!");
+            } else {
+                reject("Pembelian gagal.");
+            }
+        }, 2000);
+    });
+}
+
+// Fungsi untuk menangani pengiriman formulir pembelian
+async function handlePurchaseFormSubmit(event) {
+    event.preventDefault(); // Mencegah pengiriman form standar
+
+    // Dapatkan nilai input dari form
+    const metode = document.getElementById("payment-method").value;
+    const itemQuantity = document.getElementById("item-quantity").value;
+    const shippingAddress = document.getElementById("shipping-address").value;
+
+    // Buat objek formData
+    const formData = {
+        metode,
+        itemQuantity,
+        shippingAddress
+    };
+
+    try {
+        // Kirim data formulir menggunakan fungsi asynchronous
+        const result = await submitPurchaseForm(formData);
+        
+        // Tampilkan hasil yang dikembalikan dari fungsi asynchronous
+        alert(result);
+        
+        // Tutup popup setelah pembelian
+        closePopup();
+    } catch (error) {
+        // Tangani kesalahan jika ada
+        alert(`Terjadi kesalahan: ${error}`);
+    }
+}
+
+// Menambahkan event listener ke form ketika DOM sudah dimuat
+document.addEventListener("DOMContentLoaded", function() {
+    // Dapatkan elemen form
+    const purchaseForm = document.getElementById("purchase-form");
+
+    // Tambahkan event listener untuk pengiriman form
+    purchaseForm.addEventListener("submit", handlePurchaseFormSubmit);
+});
