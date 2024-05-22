@@ -38,6 +38,9 @@ header {
     background-color: aqua;
     border-radius: 50px;
 }
+.login a{
+    cursor: pointer;
+}
 nav {
     float: right;
     color: #000;
@@ -53,6 +56,7 @@ nav ul li a {
     color: #000;
     text-decoration: none;
     margin: 0 10px;
+    cursor: pointer;
 }
 .content{
     padding-top: 100px;
