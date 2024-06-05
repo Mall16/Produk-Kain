@@ -25,39 +25,6 @@
             <div class="form-group">
                 <input type="submit" value="Login">
             </div>
-<<<<<<< HEAD
-            <?php
-            session_start();
-
-            $c_email = getenv("email");
-            $c_pass = getenv("password");
-            
-            $email = "hikmal@gmail.com";
-            $pass = "hikmal123";
-                 
-            setcookie('email', $email, time() + (86400 * 30), "/");
-            setcookie('password', $pass, time() + (86400 * 30), "/");
-            
-            $_SESSION['email'] = $email;
-            $_SESSION['password'] = $pass;
-
-            $s_email = "email";
-            $s_pass = "password";
-            
-            $c_emailValue = isset($_COOKIE[$s_email]) ? $_COOKIE[$s_email] : '';
-            $c_passValue = isset($_COOKIE[$s_pass]) ? $_COOKIE[$s_pass] : '';
-            
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $m_email = isset($_POST['email']) ? $_POST['email'] : '';
-                $m_pass = isset($_POST['password']) ? $_POST['password'] : '';
-            
-                if ($m_email === $c_emailValue && $m_pass === $c_passValue) {
-                    echo "<script> alert('Login Berhasil!');
-                    window.location.href = 'index.html'; </script>";
-                    exit();
-                } else {
-                    echo '<script>alert("Login GAGAL, Silahkan Cek Username dan Password Anda")</script>';
-=======
 
             <?php 
             include 'koneksi.php';
@@ -91,16 +58,11 @@
                       window.location = 'login.php';
                     </script>
                     ";
->>>>>>> 91e214c73ec3e92191e19df9e750152110c1aaa9
                 }
             }
             ?>
         </form>
-<<<<<<< HEAD
-        <p>Belum Memiliki Akun? <a href="register.html">Register</a></p>
-=======
         <p>Belum Memiliki Akun? <a href="register.php">Register</a></p>
->>>>>>> 91e214c73ec3e92191e19df9e750152110c1aaa9
     </div>
 </body>
 </html>
