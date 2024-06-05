@@ -25,6 +25,7 @@
             <div class="form-group">
                 <input type="submit" value="Login">
             </div>
+<<<<<<< HEAD
             <?php
             session_start();
 
@@ -56,11 +57,50 @@
                     exit();
                 } else {
                     echo '<script>alert("Login GAGAL, Silahkan Cek Username dan Password Anda")</script>';
+=======
+
+            <?php 
+            include 'koneksi.php';
+            if($_POST) {
+              $requestEmail = $_POST['email'];
+              $requestPassword = $_POST['password'];
+            
+              $sql = "SELECT * FROM tb_user WHERE email = '$requestEmail'";
+              list($id, $email, $password,  $username) = mysqli_fetch_row(mysqli_query($koneksi, $sql));
+              $result = mysqli_query($koneksi, $sql);
+            
+              if(mysqli_num_rows($result) > 0) {
+                if (password_verify($requestPassword, $password)) {
+                    while($row = mysqli_fetch_assoc($result)) {
+                        session_start();
+                        $_SESSION['email'] = $row['email'];
+                        header('location:admin/dashboard.php');
+                    }
+                  } else { 
+                      echo "
+                      <script>
+                        alert('email atau password anda salah, Silahkan coba lagi');
+                        window.location = 'login.php';
+                      </script>
+                      ";
+                  }
+                } else { 
+                    echo "
+                    <script>
+                      alert('email atau password anda salah, Silahkan coba lagi');
+                      window.location = 'login.php';
+                    </script>
+                    ";
+>>>>>>> 91e214c73ec3e92191e19df9e750152110c1aaa9
                 }
             }
             ?>
         </form>
+<<<<<<< HEAD
         <p>Belum Memiliki Akun? <a href="register.html">Register</a></p>
+=======
+        <p>Belum Memiliki Akun? <a href="register.php">Register</a></p>
+>>>>>>> 91e214c73ec3e92191e19df9e750152110c1aaa9
     </div>
 </body>
 </html>
