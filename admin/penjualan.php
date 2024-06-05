@@ -1,49 +1,92 @@
+<?php
+session_start();
+if ($_SESSION['email'] == null) {
+	header('location:../login.php');
+}
+include '../koneksi.php'; // Pastikan file koneksi ada dan benar
+
+// Memeriksa apakah koneksi berhasil
+if ($koneksi === false) {
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+
+// Menjalankan kueri
+$sql = "SELECT * FROM tb_penjualan";
+$result = mysqli_query($koneksi, $sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Web</title>
+    <title>Admin Web</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .tambah{
+            margin-bottom: 5px;
+            float: left;
+            text-decoration: none;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #007bff;
+        }
+        .btn-edit,
+        .btn-hapus{
+            text-decoration: none;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .btn-edit{
+            background-color: #27ff6f;
+        }
+        .btn-hapus{
+            background-color: #ff1111;
+        }
+    </style>
 </head>
 <body>
     <?php
         include 'nav.php';
     ?>
     <div class="container">
-        <h2>Data Pemesanan</h2>
+        <h2>Data Penjualan</h2>
+        <a class="tambah" href="penjualan-input.php">Tambah</a>
+        <a class="tambah" href="penjualan-Laporan.php" style="margin-left: 5px;">Cetak</a>
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>TGL-Pesan</th>
-                    <th>Status Pembayaran</th>
+                    <th>Nama Kain</th>
+                    <th>Pembeli</th>
+                    <th>Jumlah Barang</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
+            <?php
+			if (mysqli_num_rows($result) == 0) {
+                echo "
                 <tr>
-                    <td>1</td>
-                    <td>John Doe</td>
-                    <td>john@example.com</td>
-                    <td>2-januari-2024</td>
-                    <td class="p">Paid</td>
+                    <td colspan='4' align='center'>Data Kosong</td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Jane Smith</td>
-                    <td>jane@example.com</td>
-                    <td>14-januari-2024</td>
-                    <td class="n">Not Paid</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Jane Smith</td>
-                    <td>jane@example.com</td>
-                    <td>29-januari-2024</td>
-                    <td class="p">Paid</td>
-                </tr>
+                ";
+            } else {
+                while ($data = mysqli_fetch_assoc($result)) {
+                    echo "
+                    <tr>
+                        <td>{$data['nama_kain']}</td>
+                        <td>{$data['user_name']}</td>
+                        <td>{$data['jml_barang']}</td>
+                        <td>
+                            <a class='btn-edit' href='penjualan-edit.php?id={$data['id_penjualan']}'>Edit</a> | 
+                            <a class='btn-hapus' href='penjualan-hapus.php?id={$data['id_penjualan']}'>Hapus</a>
+                        </td>
+                    </tr>
+                    ";
+                }
+            }
+			?>
                 <!-- Tambahkan baris data lainnya sesuai kebutuhan -->
             </tbody>
         </table>
